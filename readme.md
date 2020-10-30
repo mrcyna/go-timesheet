@@ -8,3 +8,5 @@ File format is:
 2020/10/29 20:10 ~ 2020/10/29 22:50
 2020/10/29 23:00 ~ 2020/10/30 00:45
 ```
+
+**Run app with -h to see available options**
