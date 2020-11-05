@@ -71,7 +71,7 @@ func main() {
 	p.Printf(" Final Salary:		%d %s\n", sumDiff*eachMinutes, *currencyFlag)
 	fmt.Printf("+---------------------------------------------------------------+\n")
 	fmt.Printf("| (c) 2020 @mrcyna, All Rights Reserved                         |\n")
-	fmt.Printf("| Source avaible on https://github.com/mrcyna/go-timesheet      |\n")
+	fmt.Printf("| Source available on https://github.com/mrcyna/go-timesheet    |\n")
 	fmt.Printf("+---------------------------------------------------------------+\n")
 
 	if err := scanner.Err(); err != nil {
