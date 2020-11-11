@@ -15,7 +15,7 @@ import (
 
 func main() {
 	// Parameters
-	var filenameFlag = flag.String("filename", "timesheet.txt", "the path to the filesheet")
+	var filenameFlag = flag.String("filename", "timesheet.txt", "the path to the timesheet file")
 	var perHourFlag = flag.Int64("per-hour", 300000, "the amount you of each hour work")
 	var currencyFlag = flag.String("currency", "IRR", "the currency unit")
 	flag.Parse()
@@ -46,13 +46,15 @@ func main() {
 		// Try to parse open date
 		openDate, err := time.Parse("2006/01/02 15:04", period[0])
 		if err != nil {
-			panic(err)
+			fmt.Printf("Open date '%s' is not valid\n", period[0])
+			os.Exit(1)
 		}
 
 		// Try to parse close date
 		closeDate, err := time.Parse("2006/01/02 15:04", period[1])
 		if err != nil {
-			panic(err)
+			fmt.Printf("Close date '%s' is not valid\n", period[1])
+			os.Exit(1)
 		}
 
 		// Get diff
@@ -60,7 +62,7 @@ func main() {
 		sumDiff += diff
 
 		HH, mm := minutesToHHMM(diff)
-		fmt.Printf("| %s ~ %s |  %02d:%d\n", openDate, closeDate, HH, mm)
+		fmt.Printf("| %s ~ %s |  %02d:%02d\n", openDate, closeDate, HH, mm)
 	}
 
 	p := message.NewPrinter(language.English)
